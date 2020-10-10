@@ -1,0 +1,30 @@
+<html>
+    当你看到这个页面的时候说明你可以使用了
+    <div id="CES">
+    <input type="button" value="点击测试获取cookie" @click="go">
+    <input type="button" value="点击删除Cookie" @click="go2">
+    </div>
+    <img src="STATIC/AEX.png">
+    <script src="JS/vue.js"></script>
+    <script src="JS/Jquery.js"></script>
+    
+    <script>
+        var PP=new Vue({
+            el:"#CES",
+            delimiters:['[[',']]'],
+            data:{
+                NAME:""
+            },
+            methods:{
+                go:function(){
+                    $.post("CESsetcookie",{"USER":"PAD"},(data)=>{console.log(data)},"JSON").error(console.log("XX"))
+                },
+                go2:function(){
+                    $.post("delcookie",{"A":"PAD"},(data)=>{console.log(data)},"JSON").error(console.log("XX"))
+                }
+            }
+
+        })
+    </script>
+
+</html>
